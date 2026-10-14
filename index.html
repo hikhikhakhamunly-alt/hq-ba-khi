@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b12">
+  <title>HQ BÁ KHÍ — Link Control</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">HQ</span><span>HQ <b>BÁ KHÍ</b><small>LINK CONTROL / V1.0</small></span></a>
+    <div class="status"><i></i> GIAO DIỆN SẴN SÀNG</div>
+  </header>
+
+  <main class="layout">
+    <section class="hero">
+      <div class="eyebrow"><span></span> CONTROL CENTER / PERSONAL WORKSPACE</div>
+      <h1>KIỂM SOÁT<br><em>THEO CÁCH CỦA BẠN.</em></h1>
+      <p class="intro">Nhận link đầu vào, kiểm tra định dạng, rồi gửi yêu cầu và kết quả trạng thái về Telegram Bot của bạn.</p>
+      <div class="hero-tags"><span>SECURE BY DESIGN</span><span>TELEGRAM CONNECT</span><span>NEON INTERFACE</span></div>
+      <div class="metrics">
+        <div><small>HỆ THỐNG</small><strong><span class="dot"></span> READY</strong></div>
+        <div><small>BACKEND</small><strong id="backendStatus">CHƯA KẾT NỐI</strong></div>
+        <div><small>YÊU CẦU PHIÊN</small><strong id="requestCount">00</strong></div>
+      </div>
+    </section>
+
+    <section class="panel activation">
+      <div class="panel-head"><div><span class="section-no">01</span><h2>KÍCH HOẠT THIẾT BỊ</h2></div><span class="pill amber">ACCESS</span></div>
+      <p class="muted">Mã thiết bị được tạo ngay trên trình duyệt. KEY được xác thực ở backend nếu bạn đã cấu hình.</p>
+      <label for="deviceId">DEVICE ID</label>
+      <div class="input-row"><input id="deviceId" readonly><button class="ghost" id="copyDevice">SAO CHÉP</button></div>
+      <label for="activationKey">MÃ KÍCH HOẠT (KEY)</label>
+      <div class="input-row"><input id="activationKey" placeholder="Nhập KEY do quản trị cấp" autocomplete="off"><button id="activateBtn" class="button small">KÍCH HOẠT ↗</button></div>
+      <div id="activationMessage" class="message">Chưa xác thực KEY. Bạn vẫn có thể kiểm tra giao diện.</div>
+    </section>
+
+    <section class="panel submit-panel">
+      <div class="panel-head"><div><span class="section-no">02</span><h2>GỬI LINK</h2></div><span class="pill cyan">TELEGRAM</span></div>
+      <p class="muted">Dán một URL công khai. Backend sẽ kiểm tra định dạng và gửi yêu cầu đến Telegram, không đăng nhập thay bạn hay vượt hạn chế nền tảng.</p>
+      <form id="linkForm">
+        <label for="linkInput">LINK ĐẦU VÀO</label>
+        <input id="linkInput" type="url" placeholder="https://www.tiktok.com/..." required>
+        <label for="noteInput">GHI CHÚ (KHÔNG BẮT BUỘC)</label>
+        <textarea id="noteInput" rows="3" maxlength="400" placeholder="Ví dụ: kiểm tra link này giúp mình..."></textarea>
+        <button class="button submit" type="submit"><span>GỬI YÊU CẦU</span><b>↗</b></button>
+      </form>
+      <div id="result" class="result" aria-live="polite"><span class="result-icon">⌁</span><span>Đang chờ yêu cầu đầu tiên.</span></div>
+    </section>
+
+    <section class="panel activity">
+      <div class="panel-head"><div><span class="section-no">03</span><h2>NHẬT KÝ PHIÊN</h2></div><button class="text-button" id="clearLog">XÓA NHẬT KÝ</button></div>
+      <div id="logList" class="log-list"><div class="empty">Chưa có hoạt động nào.</div></div>
+    </section>
+  </main>
+  <footer><span>HQ BÁ KHÍ <b>●</b> BUILT FOR YOUR WORKFLOW</span><span>Không lưu Bot Token trong frontend.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
